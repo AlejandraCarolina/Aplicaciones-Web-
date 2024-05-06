@@ -10,6 +10,8 @@ class User {
         $this->conexion = new Conexion();
     }
 
+    //registrar un usuario
+
     public function registrar($usuario, $password) {
         $conexion = $this->conexion->conectar();
         $sql = "INSERT INTO usuario (nombre, contraseña) VALUES ('$usuario','$password')";
@@ -21,6 +23,8 @@ class User {
         }
     }
 
+    //inicio de sesión
+    
     public function login($usuario, $password) {
         $conexion = $this->conexion->conectar();
         $sql = "SELECT * FROM usuario WHERE nombre = '$usuario' AND contraseña = '$password'";

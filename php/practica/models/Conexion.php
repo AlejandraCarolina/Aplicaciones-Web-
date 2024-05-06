@@ -1,14 +1,15 @@
 <?php
 
-
 class Conexion {
+
+    //variables para la conexión a la bd
 
     private $host = "localhost";
     private $user = "root";
     private $password = ""; 
     private $database = "practica";
 
-   
+
     public function conectar() {
         $conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
 
