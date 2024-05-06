@@ -20,9 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `practica`
 --
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `carreras`
 --
