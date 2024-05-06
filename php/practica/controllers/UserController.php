@@ -27,7 +27,7 @@ class UserController {
     
             if ($this->model->registrar($usuario, $password)) {
                 echo "Regisrtado correctamente";
-                header('Location: ./index.php?controller=UserController&action=inicioSesion');
+                //header('Location: ./index.php?controller=UserController&action=inicioSesion');
             } else {
                 echo "Error al registrar el usuario";
             }
