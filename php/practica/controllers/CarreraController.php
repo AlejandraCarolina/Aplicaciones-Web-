@@ -30,11 +30,14 @@ class CarreraController {
         }
     }
 
+    //MÉTODO PARA EDITAR LA CARRERA, VARIABLES DE LA BD 
     public function editar() {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_POST['id_carrera'];
             $nombre = $_POST['nombre'];
             $id_universidad = $_POST['id_universidad'];
+
+            //Agregar carrera a la bd
     
             if ($this->model->actualizarCarrera($id, $nombre, $id_universidad)) {
                 echo "Carrera actualizada correctamente";
@@ -46,6 +49,8 @@ class CarreraController {
             include './views/Carreras/editar.php';
         }
     }
+
+    //MÉTODO PARA ELIMINAR LA CARRERA
 
     public function eliminar() {
         $id = $_GET['id'];

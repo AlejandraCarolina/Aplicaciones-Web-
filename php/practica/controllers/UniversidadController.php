@@ -30,22 +30,32 @@ class UniversidadController {
 
     public function editar() {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            // Obtiene los datos del formulario
             $id = $_POST['id_universidad'];
             $nombre = $_POST['nombre'];
+
+            // Actualiza la universidad en la base de datos
     
             if ($this->model->actualizarUniversidad($id, $nombre)) {
                 echo "Universidad actualizada correctamente";
                 header('Location: ./index.php?controller=UniversidadController&action=index');
             } 
         } else {
+            // Obtiene el ID de la universidad desde el parámetro GET
             $id = $_GET['id'];
+            // Obtiene los datos de la universidad para editar
             $universidad = $this->model->obtenerUniversidadPorId($id);
             include './views/Universidad/editar.php';
         }
     }
 
+    //  Método para eliminar una universidad
     public function eliminar() {
+        // Obtiene el ID de la universidad desde el parámetro GET
         $id = $_GET['id'];
+
+        // Elimina la universidad de la base de datos
         $this->model->eliminarUniversidad($id);
         header('Location: ./index.php?controller=UniversidadController&action=index');
         

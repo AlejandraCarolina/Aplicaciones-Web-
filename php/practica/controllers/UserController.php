@@ -5,14 +5,18 @@ require_once __DIR__ . '/../models/User.php';
 class UserController {
     private $model;
 
+    //Método constructor para inicializar el modelo User.
+    
     public function __construct() {
         $this->model = new User();
     }
 
+    //Método para mostrar la página de inicio de sesión.
     public function index() {
         require_once __DIR__ . '/../views/InicioSesion/index.php';
     }
 
+    //Muestra el formulario de registro si no se proporcionan datos de usuario, de lo contrario registra al usuario.
     public function registrar() {
         
         if(!isset($_POST['user']) || !isset($_POST['contrasena'])){
@@ -31,6 +35,8 @@ class UserController {
        
     }
 
+    //Muestra el formulario de inicio de sesión si no se proporcionan datos de usuario, de lo contrario inicia sesión al usuario.
+     
     public function inicioSesion() {
 
         if(!isset($_POST['user']) || !isset($_POST['contrasena'])){
@@ -49,6 +55,10 @@ class UserController {
        
     }
 
+     
+    //Método para cerrar sesión de usuarios.
+    //Destruye la sesión y redirige al usuario a la página de inicio de sesión.
+    
     public function cerrarSesion() {
         session_start();
         session_destroy();
