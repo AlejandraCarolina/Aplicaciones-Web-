@@ -5,7 +5,7 @@ class Conexion {
 
     private $host = "localhost";
     private $user = "root";
-    private $password = "root"; 
+    private $password = ""; 
     private $database = "practica";
 
    
