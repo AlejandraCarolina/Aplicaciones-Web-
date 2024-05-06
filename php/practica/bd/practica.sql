@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2024 a las 04:21:14
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Servidor: localhost:8889
+-- Tiempo de generación: 06-05-2024 a las 06:17:33
+-- Versión del servidor: 5.7.39
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,14 @@ CREATE TABLE `carreras` (
   `id_carrera` int(11) NOT NULL,
   `nombre` varchar(80) NOT NULL,
   `id_universidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `carreras`
+--
+
+INSERT INTO `carreras` (`id_carrera`, `nombre`, `id_universidad`) VALUES
+(1, 'Matemática', 2);
 
 -- --------------------------------------------------------
 
@@ -42,7 +49,33 @@ CREATE TABLE `carreras` (
 CREATE TABLE `universidad` (
   `id_uni` int(11) NOT NULL,
   `nombre` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `universidad`
+--
+
+INSERT INTO `universidad` (`id_uni`, `nombre`) VALUES
+(2, 'Politecnica');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `contraseña` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `contraseña`) VALUES
+(1, 'David', '1234');
 
 --
 -- Índices para tablas volcadas
@@ -62,6 +95,12 @@ ALTER TABLE `universidad`
   ADD PRIMARY KEY (`id_uni`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -69,13 +108,19 @@ ALTER TABLE `universidad`
 -- AUTO_INCREMENT de la tabla `carreras`
 --
 ALTER TABLE `carreras`
-  MODIFY `id_carrera` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `universidad`
 --
 ALTER TABLE `universidad`
-  MODIFY `id_uni` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_uni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
