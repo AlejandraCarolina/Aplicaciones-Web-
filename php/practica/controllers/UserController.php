@@ -26,8 +26,8 @@ class UserController {
             $password = $_POST['contrasena'];
     
             if ($this->model->registrar($usuario, $password)) {
-                echo "Regisrtado correctamente";
-                //header('Location: ./index.php?controller=UserController&action=inicioSesion');
+                echo "Registrado correctamente";
+                header('Location: ./index.php?controller=UserController&action=inicioSesion');
             } else {
                 echo "Error al registrar el usuario";
             }
