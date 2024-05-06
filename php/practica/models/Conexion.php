@@ -4,9 +4,9 @@ class Conexion {
 
     //variables para la conexión a la bd
 
-    private $host = "localhost";
-    private $user = "root";
-    private $password = ""; 
+    private $host = "159.203.72.44";
+    private $user = "admin";
+    private $password = "46423cde20ef51b70b6b07471fb9c85c77a84ca69147f4df"; 
     private $database = "practica";
 
 
