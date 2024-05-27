@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
-class CategoriasController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -15,7 +15,7 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 <h2 class="text-2xl font-semibold mb-6">Category List</h2>
 
-                <a href="{{ route('categories.create') }}" class="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded inline-flex items-center mb-4">
+                <a href="{{ route('categories.create') }}" class="bg-gray-500 hover:bg-gray-700 font-bold py-2 px-4 rounded inline-flex items-center mb-4">
                     <i class="bi bi-plus-circle mr-2"></i> Add New Category
                 </a>
 
