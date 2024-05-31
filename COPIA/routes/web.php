@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\ClienteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,10 +23,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('products', ProductController::class);
 
-
-    Route::resource('categories', CategoryController::class);
+    Route::resource('productos', ProductoController::class);
+    Route::resource('categorias', CategoriaController::class);
+    Route::resource('inventario', InventarioController::class);
+    Route::resource('ventas', VentaController::class);
+    Route::resource('clientes', ClienteController::class);
 
 });
 

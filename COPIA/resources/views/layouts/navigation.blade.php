@@ -13,15 +13,28 @@
               
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                    <x-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.index')">
                         {{ __('Productos') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
                         {{__('Categorías')}}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('inventario.index')" :active="request()->routeIs('inventario.index')">
+                        {{__('Inventario')}}
+                    </x-nav-link>
+
+                     <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
+                        {{__('Ventas')}}
+                    </x-nav-link>
+
+                     <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                        {{__('clientes')}}
+                    </x-nav-link>
+
                 </div>
+
 
             </div>
 
