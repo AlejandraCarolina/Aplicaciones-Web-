@@ -67,13 +67,15 @@ class ProveedorController extends Controller
         
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->update($validated);
-        
+
         return redirect()->route('proveedores.index')->with('success', 'Proveedor actualizado exitosamente.');
     }
 
-   
-    public function destroy(string $id)
+
+    public function destroy($id)
     {
+        $proveedor = Proveedor::findOrFail($id);
+          
         $proveedor->delete();
         
         return redirect()->route('proveedores.index')->with('success', 'Proveedor eliminado exitosamente.');
