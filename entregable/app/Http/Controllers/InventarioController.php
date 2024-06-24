@@ -47,7 +47,8 @@ class InventarioController extends Controller
 
     public function edit(Inventario $inventario)//vista editar
     {
-        return view('inventario.edit', compact('inventario'));
+        $productos = Producto::all();
+        return view('inventario.edit', compact('inventario','productos'));
     }
 
     public function update(Request $request, Inventario $inventario)

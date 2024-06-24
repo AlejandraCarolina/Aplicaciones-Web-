@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProveedorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('inventario', InventarioController::class);
     Route::resource('ventas', VentaController::class);
     Route::resource('clientes', ClienteController::class);
+    Route::resource('proveedores',ProveedorController::class);
 
 });
 
