@@ -31,6 +31,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('ventas', VentaController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('proveedores',ProveedorController::class);
+    Route::resource('compras',ComprasController::class);
 
 });
 
