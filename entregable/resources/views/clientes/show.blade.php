@@ -19,6 +19,22 @@
                         <p>{{ $cliente->nombre }}</p>
                     </div>
                     <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Correo Electrónico:</label>
+                        <p>{{ $cliente->correo }}</p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Código Postal:</label>
+                        <p>{{ $cliente->codigo_postal }}</p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Regimén Fiscal:</label>
+                        <p>{{ $cliente->regimen_fiscal }}</p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Razón Social:</label>
+                        <p>{{ $cliente->razon_social }}</p>
+                    </div>    
+                    <div class="mb-4">
                         <label class="block text-gray-700 font-bold">Dirección:</label>
                         <p>{{ $cliente->direccion }}</p>
                     </div>

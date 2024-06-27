@@ -33,6 +33,18 @@
                         <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.index')">
                             {{__('Proveedores')}}
                         </x-nav-link>
+
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                            {{__('Clientes')}}
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('pagos.index')" :active="request()->routeIs('pagos.index')">
+                            {{__('Pago')}}
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('cotizaciones.index')" :active="request()->routeIs('cotizaciones.index')">
+                            {{__('Cotizaciones')}}
+                        </x-nav-link>
                         
                         <x-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.index')">
                             {{__('Compras')}}
@@ -41,11 +53,6 @@
                         <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
                             {{__('Ventas')}}
                         </x-nav-link>
-                        
-                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                            {{__('clientes')}}
-                        </x-nav-link>
-                        
                     </div>
                 </div>
                 

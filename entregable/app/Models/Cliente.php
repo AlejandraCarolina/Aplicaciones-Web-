@@ -12,7 +12,7 @@ class Cliente extends Model
     protected $primaryKey = 'id_cliente';
 
     protected $fillable = [
-        'nombre', 'direccion', 'rfc', 'telefono'
+        'nombre', 'correo', 'codigo_postal', 'regimen_fiscal','razon_social','direccion', 'rfc', 'telefono'
     ];
 
     public function ventas()

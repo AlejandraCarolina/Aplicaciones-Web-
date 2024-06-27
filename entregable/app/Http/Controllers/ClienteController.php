@@ -23,6 +23,10 @@ class ClienteController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required',
+            'correo' => 'required',
+            'codigo_postal' => 'required',
+            'regimen_fiscal' => 'required',
+            'razon_social' => 'required',
             'direccion' => 'required',
             'rfc' => 'required',
             'telefono' => 'required',
@@ -46,6 +50,10 @@ class ClienteController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required',
+            'correo' => 'required',
+            'codigo_postal' => 'required',
+            'regimen_fiscal' => 'required',
+            'razon_social' => 'required',
             'direccion' => 'required',
             'rfc' => 'required',
             'telefono' => 'required',

@@ -8,6 +8,7 @@ use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProveedorController;
+use App\Htpp\Controllers\PagosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('proveedores',ProveedorController::class);
     Route::resource('compras',ComprasController::class);
+    Route::resource('pagos',App\Http\Controllers\PagosController::class);
+    Route::resource('cotizaciones',CotizacionesController::class);
+    
 
 });
 

@@ -17,6 +17,22 @@
                             <input type="text" id="nombre" name="nombre" class="w-full border-gray-300 rounded" required>
                         </div>
                         <div class="mb-4">
+                            <label for="correo" class="block text-gray-700 font-bold">Correo electrónico:</label>
+                            <input type="text" id="correo" name="correo" class="w-full border-gray-300 rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="codigo_postal" class="block text-gray-700 font-bold">Código Postal:</label>
+                            <input type="text" id="codigo_postal" name="codigo_postal" class="w-full border-gray-300 rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="regimen_fiscal" class="block text-gray-700 font-bold">Regimén Fiscal:</label>
+                            <input type="text" id="regimen_fiscal" name="regimen_fiscal" class="w-full border-gray-300 rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="razon_social" class="block text-gray-700 font-bold">Razón Social:</label>
+                            <input type="text" id="razon_social" name="razon_social" class="w-full border-gray-300 rounded" required>
+                        </div>
+                        <div class="mb-4">
                             <label for="direccion" class="block text-gray-700 font-bold">Dirección:</label>
                             <input type="text" id="direccion" name="direccion" class="w-full border-gray-300 rounded" required>
                         </div>
