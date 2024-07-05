@@ -31,6 +31,10 @@
                         <p>{{ $producto->descripcion }}</p>
                     </div>
                     <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Descripción corta:</label>
+                        <p>{{ $producto->descripcion_corta }}</p>
+                    </div>
+                    <div class="mb-4">
                         <label class="block text-gray-700 font-bold">Categoría:</label>
                         <p>{{ $producto->category->nombre }}</p>
                     </div>

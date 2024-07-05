@@ -30,6 +30,10 @@
                             <textarea id="descripcion" name="descripcion" class="w-full border-gray-300 rounded">{{ $producto->descripcion }}</textarea>
                         </div>
                         <div class="mb-4">
+                            <label for="descripcion_corta" class="block text-gray-700 font-bold">Descripción corta:</label>
+                            <textarea id="descripcion_corta" name="descripcion_corta" class="w-full border-gray-300 rounded">{{ $producto->descripcion_corta }}</textarea>
+                        </div>
+                        <div class="mb-4">
                             <label for="categoria_id" class="block text-gray-700 font-bold">Categoría:</label>
                             <select id="categoria_id" name="categoria_id" class="w-full border-gray-300 rounded" required>
                                 @foreach($categorias as $categoria)

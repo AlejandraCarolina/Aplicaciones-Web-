@@ -13,4 +13,22 @@ class ComprasController extends Controller
             'compras' => $compra
         ]);
     }
+
+    public function create()
+    {
+        $productos = Producto::with('category')->get(); // Obtener todos los productos con sus categorías
+        return view('compras.create', compact('compras')); // Pasar los productos a la vista
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'compras_id' => 'required|integer'
+       
+        ]);
+
+        Compra::create($validated);
+        return redirect()->route('compras.index');
+    }
+
 }
