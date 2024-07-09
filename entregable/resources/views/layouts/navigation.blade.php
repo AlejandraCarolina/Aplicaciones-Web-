@@ -42,14 +42,18 @@
                             {{__('Pago')}}
                         </x-nav-link>
 
-                        <x-nav-link :href="route('cotizaciones.index')" :active="request()->routeIs('cotizaciones.index')">
-                            {{__('Cotizaciones')}}
-                        </x-nav-link>
-                        
                         <x-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.index')">
                             {{__('Compras')}}
                         </x-nav-link>
 
+                        <x-nav-link :href="route('vendedores.index')" :active="request()->routeIs('vendedores.index')">
+                            {{__('Vendedores')}}
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('cotizaciones.index')" :active="request()->routeIs('cotizaciones.index')">
+                            {{__('Cotizaciones')}}
+                        </x-nav-link>
+                        
                         <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
                             {{__('Ventas')}}
                         </x-nav-link>

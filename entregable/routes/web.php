@@ -9,6 +9,8 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProveedorController;
 use App\Htpp\Controllers\PagosController;
+use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\VendedoresController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,8 +34,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('ventas', VentaController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('proveedores',ProveedorController::class);
-    Route::resource('compras',ComprasController::class);
+    Route::resource('compras',App\Http\Controllers\ComprasController::class);
     Route::resource('pagos',App\Http\Controllers\PagosController::class);
+    Route::resource('vendedores',VendedoresController::class);
     Route::resource('cotizaciones',CotizacionesController::class);
     
 
