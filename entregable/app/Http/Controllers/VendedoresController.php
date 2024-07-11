@@ -36,12 +36,12 @@ class VendedoresController extends Controller
         return view('vendedores.show', compact('vendedor'));
     }
 
-    public function edit(Vendedor $vendedor)
+    public function edit( Vendedor $vendedore)
     {
-        return view('vendedores.edit', compact('vendedor'));
+        return view('vendedores.edit', compact('vendedore'));
     }
 
-    public function update(Request $request,Vendedor $vendedor)
+    public function update(Request $request, Vendedor $vendedore)
     {
         $validated = $request->validate([
             'nombre' => 'required',
@@ -49,7 +49,7 @@ class VendedoresController extends Controller
             'telefono' => 'required',
         ]);
 
-        $vendedor->update($validated);
+        $vendedore->update($validated);
         return redirect()->route('vendedores.index');
     }
 

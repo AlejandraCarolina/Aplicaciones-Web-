@@ -20,8 +20,8 @@ class ComprasController extends Controller
     {
         //return view('compras.create');
 
-        $proveedores = Proveedor::all(); // Obtener todos los proveedores
-        $productos = Producto::all(); // Obtener todos los productos
+        $proveedores = Proveedor::with(['proveedor'])->all(); // Obtener todos los proveedores
+        $productos = Producto::with(['producto'])->all(); // Obtener todos los productos
         
         return view('compras.create', compact('proveedores', 'productos'));
     }

@@ -32,9 +32,9 @@
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 ID</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID Proveedor</th>
+                                                Proveedor</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID Producto</th>
+                                                Producto</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Cantidad</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -51,8 +51,8 @@
                                         @forelse ($compras as $compra)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->id_compra }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $compra->id_proveedor }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $compra->id_producto }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $compra->proveedor->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $compra->producto->nombre }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->cantidad }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->precio }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->fecha_compra }}</td>
