@@ -2,10 +2,10 @@
 
 
 namespace App\Http\Controllers;
+
 use App\Models\Compra;
 use App\Models\Proveedor;
 use App\Models\Producto;
-
 use Illuminate\Http\Request;
 
 class ComprasController extends Controller
@@ -18,10 +18,11 @@ class ComprasController extends Controller
 
     public function create()
     {
-        //return view('compras.create');
-
-        $proveedores = Proveedor::with(['proveedor'])->all(); // Obtener todos los proveedores
-        $productos = Producto::with(['producto'])->all(); // Obtener todos los productos
+        // Obtener todos los proveedores
+        $proveedores = Proveedor::all(); 
+        
+        // Obtener todos los productos
+        $productos = Producto::all(); 
         
         return view('compras.create', compact('proveedores', 'productos'));
     }
@@ -35,7 +36,6 @@ class ComprasController extends Controller
             'precio' => 'required|numeric',
             'fecha_compra' => 'required|date',
             'descuento' => 'nullable|numeric',
-       
         ]);
 
         Compra::create($validated);
@@ -49,23 +49,22 @@ class ComprasController extends Controller
 
     public function edit(Compra $compra)
     {
-
-        $proveedores = Proveedor::all(); // Obtener todos los proveedores
-        $productos = Producto::all(); // Obtener todos los productos
+        // Obtener todos los proveedores
+        $proveedores = Proveedor::all(); 
         
-        return view('compras.edit', compact('compra','proveedores', 'productos'));
+        // Obtener todos los productos
+        $productos = Producto::all(); 
+        
+        return view('compras.edit', compact('compra', 'proveedores', 'productos'));
     }
 
     public function update(Request $request, Compra $compra)
     {
         $validated = $request->validate([
-            //'proveedor_id' => 'required|integer',
-            //'producto_id' => 'required|integer',
             'cantidad' => 'required|integer',
             'precio' => 'required|numeric',
             'fecha_compra' => 'required|date',
             'descuento' => 'nullable|numeric',
-       
         ]);
 
         $compra->update($validated);
@@ -77,6 +76,4 @@ class ComprasController extends Controller
         $compra->delete();
         return redirect()->route('compras.index');
     }
-   
 }
-

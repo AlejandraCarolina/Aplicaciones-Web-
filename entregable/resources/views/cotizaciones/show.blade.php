@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Detalle del Producto') }}
+            {{ __('Detalle de la Cotización') }}
         </h2>
     </x-slot>
 
@@ -11,42 +11,36 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">ID:</label>
-                        <p>{{ $producto->id_producto }}</p>
+                        <label class="block text-gray-700 font-bold">ID Cotización:</label>
+                        <p>{{ $cotizacion->id_cotizacion }}</p>
                     </div>
+
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Nombre:</label>
-                        <p>{{ $producto->nombre }}</p>
+                        <label class="block text-gray-700 font-bold">Producto:</label>
+                        <p>{{ $producto->producto_id }}</p>
                     </div>
+
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Cantidad:</label>
-                        <p>{{ $producto->cantidad }}</p>
+                        <label class="block text-gray-700 font-bold">Cliente:</label>
+                        <p>{{ $cliente->cliente_id }}</p>
                     </div>
+
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Precio:</label>
-                        <p>{{ $producto->precio }}</p>
+                        <label class="block text-gray-700 font-bold">Fecha Cotización:</label>
+                        <p>{{ $cotizacion->fecha_cot}}</p>
                     </div>
+
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Descripción:</label>
-                        <p>{{ $producto->descripcion }}</p>
+                        <label class="block text-gray-700 font-bold">Vigencia:</label>
+                        <p>{{ $cotizacion->vigencia}}</p>
                     </div>
+
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Categoría:</label>
-                        <p>{{ $producto->category->nombre }}</p>
+                        <label class="block text-gray-700 font-bold">Comentarios:</label>
+                        <p>{{ $cotizacion->comentarios}}</p>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Precio de Venta:</label>
-                        <p>{{ $producto->precio_venta }}</p>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Precio de Compra:</label>
-                        <p>{{ $producto->precio_compra }}</p>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold">Fecha de Venta:</label>
-                        <p>{{ $producto->fecha_venta }}</p>
-                    </div>
-                    <a href="{{ route('productos.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition duration-150">
+             
+                    <a href="{{ route('cotizaciones.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition duration-150">
                         Volver
                     </a>
                 </div>

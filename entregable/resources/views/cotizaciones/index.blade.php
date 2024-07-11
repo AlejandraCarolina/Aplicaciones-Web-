@@ -30,15 +30,17 @@
                                     <thead>
                                         <tr>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID</th>
+                                                ID Cotización</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID Producto</th>
+                                                Producto</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID Cliente</th>
+                                                Cliente</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Fecha Cotización</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Vigencia</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Cantidad</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Comentarios</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -49,9 +51,12 @@
                                         @forelse ($cotizaciones as $cotizacion)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->producto->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->cliente->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->fecha_cot }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->vigencia }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->cantidad }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->precio }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $cotizacion->comentarios }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form action="{{ route('cotizaciones.destroy', $cotizacion->id_cotizacion) }}" method="post">
                                                         @csrf
@@ -60,7 +65,7 @@
                                                             class="inline-flex items-center px-2 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-yellow-600 transition duration-150">
                                                             <i class="bi bi-eye mr-1"></i> Mostrar
                                                         </a>
-                                                        <a href="{{ route('productos.edit', $producto->id_producto) }}"
+                                                        <a href="{{ route('cotizaciones.edit', $cotizacion->id_cotizacion) }}"
                                                             class="inline-flex items-center px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded hover:bg-blue-600 transition duration-150">
                                                             <i class="bi bi-pencil-square mr-1"></i> Editar
                                                         </a>

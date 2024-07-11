@@ -37,7 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('compras',App\Http\Controllers\ComprasController::class);
     Route::resource('pagos',App\Http\Controllers\PagosController::class);
     Route::resource('vendedores',VendedoresController::class);
-    Route::resource('cotizaciones',CotizacionesController::class);
+    Route::resource('cotizaciones',App\Http\Controllers\CotizacionesController::class);
     
 
 });
