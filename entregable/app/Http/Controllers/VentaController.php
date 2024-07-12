@@ -1,9 +1,12 @@
 <?php
 
-// app/Http/Controllers/VentaController.php
+
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Producto;
+use App\Models\Cliente;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -16,7 +19,13 @@ class VentaController extends Controller
 
     public function create()
     {
-        return view('ventas.create');
+        $productos = Producto::all();
+        $clientes = Cliente::all();
+        $categorias = Categoria::all();
+
+        return view('ventas.create', compact('productos', 'clientes', 'categorias'));
+
+        
     }
 
     public function store(Request $request)
@@ -42,7 +51,12 @@ class VentaController extends Controller
 
     public function edit(Venta $venta)
     {
-        return view('ventas.edit', compact('venta'));
+
+        $productos = Producto::all();
+        $clientes = Cliente::all();
+        $categorias = Categoria::all();
+
+        return view('ventas.edit', compact('venta', 'productos', 'clientes', 'categorias'));
     }
 
     public function update(Request $request, Venta $venta)

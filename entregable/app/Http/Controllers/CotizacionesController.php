@@ -52,12 +52,10 @@ class CotizacionesController extends Controller
 
     public function show(Cotizacion $cotizacion)
     {
-       
-        $producto = $cotizacion->producto; // Asumiendo que hay una relación definida
-        $cliente = $cotizacion->cliente; // Asumiendo que hay una relación definida
-    
+      
+        $producto = $cotizacion->producto; 
+        $cliente = $cotizacion->cliente; 
 
-        
         return view('cotizaciones.show', compact('cotizacion'));
     }
 
