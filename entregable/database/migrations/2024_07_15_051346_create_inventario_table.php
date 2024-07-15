@@ -13,7 +13,7 @@ class CreateInventarioTable extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->enum('movimiento', ['entrada', 'salida']);
             $table->date('fecha_entrada');
-            $table->date('fecha_salida')->nullable();
+            $table->date('fecha_salida');
             $table->integer('cantidad');
             $table->text('descripcion')->nullable();
             $table->timestamps();
