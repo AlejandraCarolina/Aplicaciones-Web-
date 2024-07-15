@@ -12,6 +12,7 @@
                 <div class="p-6 text-gray-900">
                     <p>ID: {{ $inventario->id_inventario }}</p>
                     <p>Producto: {{ $inventario->producto->nombre }}</p>
+                    <p>Movimiento: {{ $inventario->movimiento }}</p>
                     <p>Fecha de Entrada: {{ $inventario->fecha_entrada }}</p>
                     <p>Fecha de Salida: {{ $inventario->fecha_salida }}</p>
                     <p>Cantidad: {{ $inventario->cantidad }}</p>

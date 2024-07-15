@@ -21,14 +21,25 @@
                                 @endforeach
                             </select>
                         </div>
+
                         <div class="mb-4">
+                            <label for="movimiento" class="block text-gray-700 font-bold">Movimiento:</label>
+                            <select id="movimiento" name="movimiento" class="w-full border-gray-300 rounded" required>
+                                <option value="">Seleccione un movimiento</option>
+                                <option value="entrada" {{ $inventario->movimiento == 'entrada' ? 'selected' : '' }}>Entrada</option>
+                                <option value="salida" {{ $inventario->movimiento == 'salida' ? 'selected' : '' }}>Salida</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4" id="fecha_entrada_div">
                             <label for="fecha_entrada" class="block text-gray-700 font-bold">Fecha de Entrada:</label>
                             <input type="date" id="fecha_entrada" name="fecha_entrada" value="{{ $inventario->fecha_entrada }}" class="w-full border-gray-300 rounded" required>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-4" id="fecha_salida_div">
                             <label for="fecha_salida" class="block text-gray-700 font-bold">Fecha de Salida:</label>
                             <input type="date" id="fecha_salida" name="fecha_salida" value="{{ $inventario->fecha_salida }}" class="w-full border-gray-300 rounded">
                         </div>
+                        
                         <div class="mb-4">
                             <label for="cantidad" class="block text-gray-700 font-bold">Cantidad:</label>
                             <input type="number" id="cantidad" name="cantidad" value="{{ $inventario->cantidad }}" class="w-full border-gray-300 rounded" required>
@@ -43,4 +54,39 @@
             </div>
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const movimientoSelect = document.getElementById('movimiento');
+        const fechaEntradaDiv = document.getElementById('fecha_entrada_div');
+        const fechaSalidaDiv = document.getElementById('fecha_salida_div');
+        const fechaEntradaInput = document.getElementById('fecha_entrada');
+        const fechaSalidaInput = document.getElementById('fecha_salida');
+
+        function toggleFechaFields() {
+            const selectedValue = movimientoSelect.value;
+            if (selectedValue === 'entrada') {
+                fechaEntradaDiv.style.display = 'block';
+                fechaEntradaInput.required = true;
+                fechaSalidaDiv.style.display = 'none';
+                fechaSalidaInput.required = false;
+            } else if (selectedValue === 'salida') {
+                fechaEntradaDiv.style.display = 'none';
+                fechaEntradaInput.required = false;
+                fechaSalidaDiv.style.display = 'block';
+                fechaSalidaInput.required = true;
+            } else {
+                fechaEntradaDiv.style.display = 'none';
+                fechaEntradaInput.required = false;
+                fechaSalidaDiv.style.display = 'none';
+                fechaSalidaInput.required = false;
+            }
+        }
+
+        movimientoSelect.addEventListener('change', toggleFechaFields);
+
+        // Inicializa el estado de los campos de fecha al cargar la página
+        toggleFechaFields();
+    });
+    </script>
 </x-app-layout>

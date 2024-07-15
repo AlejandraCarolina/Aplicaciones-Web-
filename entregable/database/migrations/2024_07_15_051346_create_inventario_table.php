@@ -11,6 +11,7 @@ class CreateInventarioTable extends Migration
         Schema::create('inventario', function (Blueprint $table) {
             $table->id('id_inventario');
             $table->unsignedBigInteger('producto_id');
+            $table->enum('movimiento', ['entrada', 'salida']);
             $table->date('fecha_entrada');
             $table->date('fecha_salida')->nullable();
             $table->integer('cantidad');

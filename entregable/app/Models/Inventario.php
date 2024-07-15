@@ -14,7 +14,7 @@ class Inventario extends Model
     protected $primaryKey = 'id_inventario';
 
     protected $fillable = [
-        'producto_id', 'fecha_entrada', 'fecha_salida', 'cantidad', 'descripcion'
+        'producto_id', 'fecha_entrada', 'fecha_salida', 'cantidad','movimiento', 'descripcion'
     ];
 
     public function producto()//relacion a tabla productos

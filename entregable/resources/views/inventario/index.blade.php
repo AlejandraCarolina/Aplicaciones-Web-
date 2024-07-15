@@ -33,11 +33,13 @@
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Producto</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Movimiento</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Fecha de Entrada</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Fecha de Salida</th>
+                                                Fecha de Salidad</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Cantidad</th>
+                                                Cantidad</th>    
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Descripción</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -49,6 +51,7 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->producto->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $item->movimiento }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->fecha_entrada }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->fecha_salida }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->cantidad }}</td>
