@@ -107,28 +107,35 @@ public function store(Request $request)
     // Actualizar cantidad en función del movimiento
     if ($request->movimiento === 'entrada') {
         $producto->cantidad += $cantidad;
-    } elseif ($request->movimiento === 'salida') {
+    } 
+    if ($request->movimiento === 'salida') {
         $producto->cantidad -= $cantidad;
+        
     }
-
-    // Guardar cambios en el producto
-    $producto->save();
+ // Guardar cambios en el producto
+ $producto->save();
 
     // Crear registro en la tabla inventario
+    
     $inventario = new Inventario();
     $inventario->producto_id = $request->producto_id;
     $inventario->movimiento = $request->movimiento;
     $inventario->cantidad = $cantidad;
     $inventario->descripcion = $request->descripcion;
 
+       
+
     // Asignar fechas según el tipo de movimiento
     if ($request->movimiento === 'entrada') {
         $inventario->fecha_entrada = $request->fecha_entrada;
-        $inventario->fecha_salida = null; // Asegurar que fecha_salida esté nula en entradas
-    } elseif ($request->movimiento === 'salida') {
-        $inventario->fecha_entrada = null; // Asegurar que fecha_entrada esté nula en salidas
-        $inventario->fecha_salida = $request->fecha_salida;
-    }
+        $inventario->fecha_salida = $request->fecha_entrada;  // Asegurar que fecha_salida esté nula en entradas
+    } 
+    if ($request->movimiento === 'salida') {
+        $inventario->fecha_entrada = $request->fecha_entrada; 
+        $inventario->fecha_salida = $request->fecha_salida; // Asegurar que fecha_salida esté nula en entradas
+    } 
+
+   
 
     // Intentar guardar el registro de inventario
     try {

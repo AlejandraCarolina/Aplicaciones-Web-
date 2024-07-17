@@ -34,11 +34,12 @@
                             <label for="fecha_entrada" class="block text-gray-700 font-bold">Fecha de Entrada:</label>
                             <input type="date" id="fecha_entrada" name="fecha_entrada" class="w-full border-gray-300 rounded">
                         </div>
-
                         <div id="fecha_salida_div" class="mb-4" style="display: none;">
                             <label for="fecha_salida" class="block text-gray-700 font-bold">Fecha de Salida:</label>
                             <input type="date" id="fecha_salida" name="fecha_salida" class="w-full border-gray-300 rounded">
                         </div>
+
+                      
 
                         <div class="mb-4">
                             <label for="cantidad" class="block text-gray-700 font-bold">Cantidad:</label>
@@ -65,16 +66,19 @@
 
         function toggleFechaFields() {
             const selectedValue = movimientoSelect.value;
-            if (selectedValue === 'entrada') {
-                fechaEntradaDiv.style.display = 'block';
-                fechaSalidaDiv.style.display = 'none';
-            } else if (selectedValue === 'salida') {
+           
+            if (selectedValue == "salida") {
                 fechaEntradaDiv.style.display = 'none';
                 fechaSalidaDiv.style.display = 'block';
-            } else {
-                fechaEntradaDiv.style.display = 'none';
+            } 
+            if (selectedValue =="entrada") {
+                fechaEntradaDiv.style.display = 'block';
                 fechaSalidaDiv.style.display = 'none';
-            }
+            }  
+            //else {
+              //  fechaEntradaDiv.style.display = 'none';
+               // fechaSalidaDiv.style.display = 'none';
+            //}
         }
 
         movimientoSelect.addEventListener('change', toggleFechaFields);
