@@ -74,6 +74,9 @@
                                                             onclick="return confirm('¿Está seguro que desea eliminar esta cotización?');">
                                                             <i class="bi bi-trash mr-1"></i> Eliminar
                                                         </button>
+                                                        <a href="{{ route('cotizaciones.pdf', $cotizacion->id_cotizacion) }}"
+                                                            class="inline-flex items-center px-2 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-purple-600 transition duration-150">
+                                                            <i class="bi bi-file-earmark-pdf mr-1"></i> PDF
                                                     </form>
                                                 </td>
                                             </tr>

@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\Cliente;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CotizacionesController extends Controller
 {
@@ -15,6 +16,14 @@ class CotizacionesController extends Controller
         $cotizaciones = Cotizacion::paginate(10);
         return view('cotizaciones.index', compact('cotizaciones'));
     }
+
+    public function generatePDF($id)
+    {
+        $cotizacion = Cotizacion::findOrFail($id);
+        $pdf = PDF::loadView('cotizaciones.pdf', compact('cotizacion'));
+        return $pdf->download('cotizacion_'.$id.'.pdf');
+    }
+
 
     public function create()
     {
