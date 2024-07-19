@@ -11,6 +11,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Htpp\Controllers\PagosController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\VendedoresController;
+use App\Http\Controllers\CotizacionesController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +39,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('pagos',App\Http\Controllers\PagosController::class);
     Route::resource('vendedores',VendedoresController::class);
     Route::resource('cotizaciones',App\Http\Controllers\CotizacionesController::class);
+   
+    Route::get('/clientes/{id}/pdf', [ClienteController::class, 'generatePDF'])->name('clientes.pdf');
+
     
 
 });
