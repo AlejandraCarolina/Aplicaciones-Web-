@@ -2,6 +2,7 @@
 
 // app/Http/Controllers/InventarioController.php
 namespace App\Http\Controllers;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Models\Inventario;
 use App\Models\Producto;
@@ -18,6 +19,23 @@ class InventarioController extends Controller
             'inventario' => $inventario
         ]);
     }
+
+    public function generatePDF($id)
+    {
+        // Obtener el inventario por ID
+        $inventario = Inventario::find($id);
+
+        if (!$inventario) {
+            return redirect()->back()->with('error', 'Inventario no encontrado');
+        }
+
+        // Pasar los datos del inventario a la vista
+        $pdf = Pdf::loadView('inventario.pdf', compact('inventario'));
+
+        // Descargar el PDF
+        return $pdf->download('inventario_' . $inventario->id . '.pdf');
+    }
+
 
 
     public function create()

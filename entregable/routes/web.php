@@ -41,6 +41,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('cotizaciones',App\Http\Controllers\CotizacionesController::class);
    
     Route::get('/clientes/{id}/pdf', [ClienteController::class, 'generatePDF'])->name('clientes.pdf');
+    Route::get('/inventario/{id}/pdf', [InventarioController::class, 'generatePDF'])->name('inventario.pdf');
+    Route::get('ventas/{id}/pdf', [VentaController::class, 'generatePDF'])->name('ventas.pdf');
+    Route::get('compras/{id}/pdf', [ComprasController::class, 'generatePDF'])->name('compras.pdf');
+
+
+
 
     
 

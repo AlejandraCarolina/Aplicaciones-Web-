@@ -8,6 +8,7 @@ use App\Models\Producto;
 use App\Models\Cliente;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class VentaController extends Controller
 {
@@ -15,6 +16,13 @@ class VentaController extends Controller
     {
         $ventas = Venta::paginate(10); // paginación
         return view('ventas.index', compact('ventas'));
+    }
+
+    public function generatePDF($id)
+    {
+        $venta = Venta::findOrFail($id);
+        $pdf = PDF::loadView('ventas.pdf', compact('venta'));
+        return $pdf->download('venta_'.$id.'.pdf');
     }
 
     public function create()

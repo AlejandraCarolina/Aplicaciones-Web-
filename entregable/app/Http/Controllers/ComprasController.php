@@ -7,6 +7,8 @@ use App\Models\Compra;
 use App\Models\Proveedor;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ComprasController extends Controller
 {
@@ -14,6 +16,13 @@ class ComprasController extends Controller
     {
         $compras = Compra::paginate(10); // paginación
         return view('compras.index', compact('compras'));
+    }
+
+    public function generatePDF($id)
+    {
+        $compra = Compra::findOrFail($id);
+        $pdf = PDF::loadView('compras.pdf', compact('compra'));
+        return $pdf->download('compra_'.$id.'.pdf');
     }
 
     public function create()
