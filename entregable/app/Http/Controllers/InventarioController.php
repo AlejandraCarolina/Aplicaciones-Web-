@@ -12,13 +12,35 @@ use Illuminate\View\View;
 class InventarioController extends Controller
 {
     
-    public function index()
+    /*public function index()
     {
         $inventario = Inventario::paginate(10);
         return view('inventario.index', [
             'inventario' => $inventario
         ]);
-    }
+    }*/
+
+    public function index()
+{
+    // Cargar la relación de productos junto con el inventario
+    $inventario = Inventario::with('producto')->paginate(10);
+
+    // Transformar la colección después de la paginación
+    $inventario->getCollection()->transform(function ($item) {
+        if ($item->movimiento === 'entrada') {
+            $item->fecha_salida = '0000-00-00'; // Asignar 0000-00-00 a fecha_salida en entradas
+        } else if ($item->movimiento === 'salida') {
+            $item->fecha_entrada = '0000-00-00'; // Asignar 0000-00-00 a fecha_entrada en salidas
+        }
+        return $item;
+    });
+
+    return view('inventario.index', [
+        'inventario' => $inventario
+    ]);
+}
+
+    
 
     public function generatePDF($id)
     {
@@ -38,20 +60,25 @@ class InventarioController extends Controller
 
 
 
-    public function create()
-    {
-        $productos = Producto::with('category')->get(); // Obtener todos los productos con sus categorías
-        return view('inventario.create', compact('productos')); // Pasar los productos a la vista
-    }
+public function create()
+{
+    $productos = Producto::with('category')->get(); // Obtener todos los productos con sus categorías
+    return view('inventario.create', compact('productos')); // Pasar los productos a la vista
+
+    /*$productos = Producto::all(); // Obtener todos los productos con sus categorías
+    return view('inventario.create', compact('productos')); // Pasar los productos a la vista*/
+
+    
+}
 
 public function store(Request $request)
 {
     $request->validate([
         'producto_id' => 'required|exists:productos,id_producto',
         'movimiento' => 'required|in:entrada,salida',
-        'cantidad' => 'required|integer|min:1',
         'fecha_entrada' => 'nullable|date',
         'fecha_salida' => 'nullable|date',
+        'cantidad' => 'required|integer|min:1',
         'descripcion' => 'nullable|string|max:255',
     ]);
 
@@ -70,32 +97,27 @@ public function store(Request $request)
     } 
     if ($request->movimiento === 'salida') {
         $producto->cantidad -= $cantidad;
-        
     }
- // Guardar cambios en el producto
- $producto->save();
+    
+    // Guardar cambios en el producto
+    $producto->save();
 
     // Crear registro en la tabla inventario
-    
     $inventario = new Inventario();
     $inventario->producto_id = $request->producto_id;
     $inventario->movimiento = $request->movimiento;
     $inventario->cantidad = $cantidad;
     $inventario->descripcion = $request->descripcion;
 
-       
-
     // Asignar fechas según el tipo de movimiento
     if ($request->movimiento === 'entrada') {
         $inventario->fecha_entrada = $request->fecha_entrada;
-        $inventario->fecha_salida = $request->fecha_entrada;  // Asegurar que fecha_salida esté nula en entradas
+        $inventario->fecha_salida =  $request->fecha_entrada; // Asignar 00 a fecha_salida en entradas
     } 
     if ($request->movimiento === 'salida') {
-        $inventario->fecha_entrada = $request->fecha_entrada; 
-        $inventario->fecha_salida = $request->fecha_salida; // Asegurar que fecha_salida esté nula en entradas
-    } 
-
-   
+        $inventario->fecha_entrada = $request->fecha_salida; // Asignar 00 a fecha_entrada en salidas
+        $inventario->fecha_salida = $request->fecha_salida;
+    }
 
     // Intentar guardar el registro de inventario
     try {
@@ -105,8 +127,10 @@ public function store(Request $request)
         return redirect()->back()->withErrors(['error' => 'Error al guardar el registro en el inventario.']);
     }
 
+
     return redirect()->route('inventario.index')->with('success', 'Inventario actualizado exitosamente.');
 }
+
 
 
 
@@ -124,12 +148,12 @@ public function store(Request $request)
     public function update(Request $request, Inventario $inventario)
     {
         $validated = $request->validate([
-            'producto_id' => 'required|integer',
-            'fecha_entrada' => 'required|date',
-            'fecha_salida' => 'nullable|date',
-            'cantidad' => 'required|integer',
-            'movimiento'    => 'required|string',
-            'descripcion' => 'nullable',
+            'producto_id' => 'required|exists:productos,id_producto',
+            'movimiento' => 'required|in:entrada,salida',
+            'cantidad' => 'required|integer|min:1',
+            'fecha_entrada' => 'date',
+            'fecha_salida' => 'date',
+            'descripcion' => 'nullable|string|max:255',
         ]);
 
         $inventario->update($validated);

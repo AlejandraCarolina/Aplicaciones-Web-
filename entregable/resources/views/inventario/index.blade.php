@@ -37,7 +37,7 @@
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Fecha de Entrada</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Fecha de Salidad</th>
+                                                Fecha de Salida</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Cantidad</th>    
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -50,7 +50,7 @@
                                         @forelse ($inventario as $item)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $item->producto->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $item->producto->nombre}}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->movimiento }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->fecha_entrada }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->fecha_salida }}</td>

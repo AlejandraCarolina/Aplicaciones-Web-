@@ -34,9 +34,23 @@
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Nombre</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Categoría</th>    
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Cantidad</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Precio</th>
+                                                Precio Venta</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Precio Compra</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Color</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Descripción Corta</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Descripción Larga</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Fecha Compra</th>   
+                                            <!--<th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Imagen</th>-->
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Acción</th>
                                         </tr>
@@ -46,8 +60,15 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $producto->nombre }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->category->nombre}}</td> 
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $producto->cantidad }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->precio }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->precio_venta }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->precio_compra }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->color }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->descripcion_corta }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->descripcion_larga }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ $producto->fecha_compra }}</td>
+                            
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form action="{{ route('productos.destroy', $producto->id_producto) }}" method="post">
                                                         @csrf

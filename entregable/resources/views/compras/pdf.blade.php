@@ -15,6 +15,5 @@
     <p>Cantidad: {{ $compra->cantidad }}</p>
     <p>Precio: ${{ $compra->precio }}</p>
     <p>Fecha de Compra: {{ $compra->fecha_compra }}</p>
-    <p>Descuento: ${{ $compra->descuento }}</p>
 </body>
 </html>

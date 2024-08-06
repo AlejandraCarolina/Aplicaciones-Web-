@@ -42,8 +42,6 @@
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Fecha Compra</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Descuento</th>
-                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Acción</th>
                                         </tr>
                                     </thead>
@@ -56,7 +54,6 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->cantidad }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->precio }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $compra->fecha_compra }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $compra->descuento }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form action="{{ route('compras.destroy', $compra->id_compra) }}" method="post">
                                                         @csrf

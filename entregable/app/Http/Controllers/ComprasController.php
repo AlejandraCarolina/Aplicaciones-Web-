@@ -44,7 +44,6 @@ class ComprasController extends Controller
             'cantidad' => 'required|integer',
             'precio' => 'required|numeric',
             'fecha_compra' => 'required|date',
-            'descuento' => 'nullable|numeric',
         ]);
 
         Compra::create($validated);
@@ -70,10 +69,11 @@ class ComprasController extends Controller
     public function update(Request $request, Compra $compra)
     {
         $validated = $request->validate([
+            'proveedor_id' => 'required|integer',
+            'producto_id' => 'required|integer',
             'cantidad' => 'required|integer',
             'precio' => 'required|numeric',
             'fecha_compra' => 'required|date',
-            'descuento' => 'nullable|numeric',
         ]);
 
         $compra->update($validated);

@@ -39,8 +39,6 @@
                             <input type="date" id="fecha_salida" name="fecha_salida" class="w-full border-gray-300 rounded">
                         </div>
 
-                      
-
                         <div class="mb-4">
                             <label for="cantidad" class="block text-gray-700 font-bold">Cantidad:</label>
                             <input type="number" id="cantidad" name="cantidad" class="w-full border-gray-300 rounded" required>

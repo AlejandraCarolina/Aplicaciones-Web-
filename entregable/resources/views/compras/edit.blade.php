@@ -42,10 +42,6 @@
                             <label for="fecha_compra" class="block text-gray-700 font-bold">Fecha de compra:</label>
                             <input type="date" id="fecha_compra" name="fecha_compra" class="w-full border-gray-300 rounded" value="{{ $compra->fecha_compra}}" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="descuento" class="block text-gray-700 font-bold">Descuento:</label>
-                            <input type="number" id="descuento" name="descuento" class="w-full border-gray-300 rounded" value="{{ $compra->descuento}}" required>
-                        </div>
                    
                         <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Guardar</button>
                     </form>

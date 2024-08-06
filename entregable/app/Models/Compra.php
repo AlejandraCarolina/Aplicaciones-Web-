@@ -13,7 +13,7 @@ class Compra extends Model
     protected $primaryKey = 'id_compra';
 
     protected $fillable = [
-        'proveedor_id', 'producto_id', 'cantidad', 'precio', 'fecha_compra', 'descuento'
+        'proveedor_id', 'producto_id', 'cantidad', 'precio', 'fecha_compra'
     ];
 
     public function producto()//relacion a tabla productos
