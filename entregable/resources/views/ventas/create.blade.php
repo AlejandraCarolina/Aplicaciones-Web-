@@ -20,14 +20,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-4">
-                            <label for="categoria_id" class="block text-gray-700 font-bold">Categoría:</label>
-                            <select id="categoria_id" name="categoria_id" class="w-full border-gray-300 rounded" required>
-                                @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria->id_categoria }}">{{ $categoria->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+
                         <div class="mb-4">
                             <label for="cliente_id" class="block text-gray-700 font-bold">Cliente:</label>
                             <select id="cliente_id" name="cliente_id" class="w-full border-gray-300 rounded" required>
@@ -36,11 +29,14 @@
                                 @endforeach
                             </select>
                         </div>
+                        
                         <div class="mb-4">
                             <label for="fecha_venta" class="block text-gray-700 font-bold">Fecha de Venta:</label>
                             <input type="date" id="fecha_venta" name="fecha_venta" class="w-full border-gray-300 rounded" required>
-                        </div>
-                        <div class="mb-4">
+                        </div> 
+                        
+                        <!-- Mostrar subtotal, iva y total automaticamente-->  
+                        <!-- <div class="mb-4">
                             <label for="subtotal" class="block text-gray-700 font-bold">Subtotal:</label>
                             <input type="text" id="subtotal" name="subtotal" class="w-full border-gray-300 rounded" required>
                         </div>
@@ -51,11 +47,22 @@
                         <div class="mb-4">
                             <label for="total" class="block text-gray-700 font-bold">Total:</label>
                             <input type="text" id="total" name="total" class="w-full border-gray-300 rounded" required>
-                        </div>
+                        </div>-->
                         <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Guardar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+        // Fecha según el día actual, usando el formato de fecha ISO, y establecerlo en el campo de fecha obteniendolo del id 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Establecer la fecha actual en el campo de fecha
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('fecha_venta').value = today;
+        });
+               
+    </script>
 </x-app-layout>

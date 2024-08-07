@@ -33,8 +33,8 @@
                                                 ID</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Producto</th>
-                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Categoría</th>
+                                           <!-- <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Categoría</th> --> 
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Cliente</th>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -54,7 +54,7 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $venta->producto->nombre }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">{{ $venta->categoria->nombre }}</td>
+                                                <!--<td class="px-6 py-4 whitespace-nowrap">{{ $venta->categoria->nombre }}</td>-->
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $venta->cliente->nombre }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $venta->fecha_venta }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $venta->subtotal }}</td>

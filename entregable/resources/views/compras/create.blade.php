@@ -22,7 +22,7 @@
                         </div>
 
                         <div id="productos-container">
-                            <!-- Productos dinámicos se agregarán aquí -->
+                           <!-- productos -->
                         </div>
 
                         <div class="mb-4">
@@ -66,7 +66,7 @@
                         <input type="number" name="cantidades[]" class="w-full border-gray-300 rounded" placeholder="Cantidad" required>
                     </div>
                     <div class="mb-2">
-                        <label class="block text-gray-700 font-bold">Precio:</label>
+                        <label class="block text-gray-700 font-bold">Elige una opción:</label>
                         <select name="precio_opciones[]" class="w-full border-gray-300 rounded precio-opcion" required>
                             <option value="mismo">Mismo precio</option>
                             <option value="actualizar">Actualizar precio</option>
